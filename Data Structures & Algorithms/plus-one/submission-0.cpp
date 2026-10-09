@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int carry=1;
+        int n=digits.size();
+        for(int i=digits.size()-1;i>=0;i--){
+            int sum=digits[i]+carry;
+            digits[i]=sum%10;
+            carry=sum/10;
+        }
+        
+        if(carry){
+            digits.resize(n+1);
+            for(int i=digits.size()-1;i>=1;i--){
+                digits[i]=digits[i-1];
+            }
+            digits[0]=1;
+        }
+        return digits;
+    }
+};
